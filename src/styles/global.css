@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 h1 {
-    color : purple;
+    color : rgb(31, 5, 127);
     font-size: 4rem;
 }
 
