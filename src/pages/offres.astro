@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import 'astro:assets';
 
 const offres = [
     {
@@ -43,7 +44,18 @@ const offres = [
     <h1>Offres</h1>
     <ul>
         {offres.map(offres => (
-            <li>{offres}</li>
+            <article>
+                <img src={offres.imgUrl}/>
+                <h2>{offres.nomMaison}</h2>
+                <h3>{offres.prix}</h3>
+                <h4>{offres.adresse}</h4>
+                <p>
+                    nombre de chambre : {offres.nbChambres}<br/>
+                    nombre de salle de bain : {offres.nbSdb}<br/>
+                    surface : {offres.surface}
+                </p>
+                <h4>{offres.favori}</h4>
+            </article>
         ))}
     </ul>
 </Layout>
