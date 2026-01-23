@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import OffreCard from '../components/OffreCard.astro';
+
 import 'astro:assets';
+import { object } from 'astro:schema';
 
 const offres = [
     {
@@ -40,22 +43,37 @@ const offres = [
 
 ---
 
+<script>
+    const button = document.getElementById('favori-button');
+    let showOnlyFavorites = false;
+    
+    button?.addEventListener('click', () => {
+        showOnlyFavorites = !showOnlyFavorites;
+        const offres = document.querySelectorAll('.offre');
+        
+        offres.forEach(offre => {
+            const isFavori = offre.dataset.favori === 'true';
+            
+            if (showOnlyFavorites) {
+                offre.style.display = isFavori ? 'block' : 'none';
+                button.textContent = 'Afficher tout';
+            } else {
+                offre.style.display = 'block';
+                button.textContent = 'Afficher les favoris';
+            }
+        });
+    });
+</script>
+
+
 <Layout titre="Offres">
     <h1>Offres</h1>
+    <button id="favori-button" class="bg-slate-600 rounded-lg text-white p-2">Afficher les favoris</button>
     <ul>
         {offres.map(offres => (
-            <article>
-                <img src={offres.imgUrl}/>
-                <h2>{offres.nomMaison}</h2>
-                <h3>{offres.prix}</h3>
-                <h4>{offres.adresse}</h4>
-                <p>
-                    nombre de chambre : {offres.nbChambres}<br/>
-                    nombre de salle de bain : {offres.nbSdb}<br/>
-                    surface : {offres.surface}
-                </p>
-                <h4>{offres.favori}</h4>
-            </article>
+            <div class="offre" data-favori={offres.favori.toString()}>
+                <OffreCard adresse={offres.adresse} fav={offres.favori} nbChmbr={offres.nbChambres} nbSdb={offres.nbSdb} nom={offres.nomMaison} prix={offres.prix} surf={offres.surface} img={offres.imgUrl}/>
+            </div>
         ))}
     </ul>
 </Layout>

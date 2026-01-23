@@ -1,0 +1,18 @@
+---
+import '../styles/global.css';
+
+const { img, nom, prix, adresse, nbChmbr, nbSdb, surf, fav } = Astro.props;
+---
+
+<li>
+    <img src={img}/>
+    <h2>{nom}</h2>
+    <h3>{prix}</h3>
+    <h4>{adresse}</h4>
+    <p>
+        nombre de chambre : {nbChmbr}<br/>
+        nombre de salle de bain : {nbSdb}<br/>
+        surface : {surf}
+    </p>
+    <h4>{fav}</h4>
+</li>
