@@ -14,7 +14,7 @@ const offres = [
         "nomMaison": "Beverly Springfield",
         "prix": 2700,
         "surface": 45,
-        "imgUrl": "image1.png"
+        "imgUrl": 'image1.avif'
     },
     {
         "adresse": "2699 Green Valley, Highland Lake",
@@ -25,7 +25,7 @@ const offres = [
         "nomMaison": "Palm Harbor",
         "prix": 2095,
         "surface": 42,
-        "imgUrl": "image2.png"
+        "imgUrl": '../assets/image2.avif'
     },
     {
         "adresse": "909 Woodland St, Michigan, IN",
@@ -36,7 +36,7 @@ const offres = [
         "nomMaison": "Faulkner Ave",
         "prix": 4550,
         "surface": 80,
-        "imgUrl": "image3.png"
+        "imgUrl": '../assets/image3.avif'
     }
 ]
 
@@ -44,11 +44,11 @@ const offres = [
 
 <Layout titre="Offres">
     <h1>Offres</h1>
-    <button id="favori-button" class="bg-slate-600 rounded-lg text-white p-2">Afficher les favoris</button>
+    <button id="favori-button" class="bg-slate-600 rounded-lg text-white p-2 button">Afficher les favoris</button>
     <ul>
         {offres.map(offres => (
             <div class="offre" data-favori={offres.favori.toString()}>
-                <OffreCard adresse={offres.adresse} fav={offres.favori} nbChmbr={offres.nbChambres} nbSdb={offres.nbSdb} nom={offres.nomMaison} prix={offres.prix} surf={offres.surface} img={offres.imgUrl}/>
+                <OffreCard class="offre-card" adresse={offres.adresse} fav={offres.favori} nbChmbr={offres.nbChambres} nbSdb={offres.nbSdb} nom={offres.nomMaison} prix={offres.prix} surf={offres.surface} img={offres.imgUrl}/>
             </div>
         ))}
     </ul>

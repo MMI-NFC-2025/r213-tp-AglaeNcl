@@ -1,11 +1,29 @@
 @import "tailwindcss";
 
 h1 {
-    color : rgb(31, 5, 127);
-    font-size: 4rem;
+    color : rgb(207, 154, 176);
+    font-family: 'Gill Sans';
+    font-size: 60px;
+    text-align: center;
 }
 
 .header {
-    background-color: purple;
+    background-color: rgba(118, 131, 70, 0.623);
     color: antiquewhite;
+    font-style: italic;
+    padding: 20px;
+}
+
+.button {
+    background-color: rgba(118, 131, 70, 0.623);
+    color: antiquewhite;
+    padding: 7px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: fixed;
+    right: 5px;
+}
+
+.offre-card {
+    height: 30px;
 }
